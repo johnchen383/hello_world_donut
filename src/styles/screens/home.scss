@@ -1,0 +1,15 @@
+@import "../mixins";
+
+.home {
+    height: 100vh;
+    width: 100vw;
+    &__container {
+        padding-top: 40vh;
+        @include flex-align-center(column);
+
+        &__buttons {    
+            @include flex-align-center(column);
+            gap: 1vw;
+        }
+    }
+}

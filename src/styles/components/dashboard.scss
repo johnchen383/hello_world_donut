@@ -1,0 +1,17 @@
+@import "../mixins";
+@import "../variables";
+
+.dashboard {
+    @include flex-align-center(column);
+    background-color: $grey;
+    padding: 2vw;
+    border-radius: 1vw;
+    &__title{
+        text-align: center;
+        margin-bottom: 1vw;
+    }
+    &__container {
+        @include flex-align-center(row);
+        gap: 1vw;
+    }
+}
