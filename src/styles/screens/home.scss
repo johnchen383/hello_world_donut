@@ -9,10 +9,13 @@
     justify-content: center;
     font-size: 5rem;
 
-
-    > canvas {
-        background-color: white;
-        width: 70vh;
+    #scene {
+        width: 70vh;    
         height: 70vh;
+
+        canvas {
+            position: absolute;
+            display: block;
+        }
     }
 }
