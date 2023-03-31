@@ -3,13 +3,16 @@
 .home {
     height: 100vh;
     width: 100vw;
-    &__container {
-        padding-top: 40vh;
-        @include flex-align-center(column);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
 
-        &__buttons {    
-            @include flex-align-center(column);
-            gap: 1vw;
-        }
+
+    > canvas {
+        background-color: white;
+        width: 70vh;
+        height: 70vh;
     }
 }
