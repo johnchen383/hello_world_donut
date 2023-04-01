@@ -23,14 +23,14 @@ function Home() {
 		renderer.domElement.height = window.innerHeight * 0.7;
 
 		renderer.toneMapping = THREE.ReinhardToneMapping;
-		renderer.toneMappingExposure = 0.9;
+		renderer.toneMappingExposure = 1.2;
 		renderer.shadowMap.enabled = true;
 
-		const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 10);
-		hemiLight.position.set(0, 0, 20);
+		const hemiLight = new THREE.HemisphereLight(0xff5555, 0xff5555, 5);
+		hemiLight.position.set(0, 0, 10);
 		scene.add(hemiLight);
 
-		const spotlight = new THREE.SpotLight(0xffffff, 10);
+		const spotlight = new THREE.SpotLight(0xff9999, 10);
 		spotlight.position.set(0, 0, 10);
 		spotlight.castShadow = true;
 		spotlight.shadow.bias = -0.001;
@@ -60,8 +60,8 @@ function Home() {
 			function animate() {
 				requestAnimationFrame(animate);
 
-				donut.rotation.z += 0.049;
-				donut.rotation.y += 0.05;
+				donut.rotation.z += 0.019;
+				donut.rotation.y += 0.02;
 
 				renderer.render(scene, camera);
 			}
