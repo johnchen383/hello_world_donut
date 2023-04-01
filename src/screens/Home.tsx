@@ -23,17 +23,19 @@ function Home() {
 		renderer.domElement.height = window.innerHeight * 0.7;
 
 		renderer.toneMapping = THREE.ReinhardToneMapping;
-		renderer.toneMappingExposure = 1.1;
+		renderer.toneMappingExposure = 0.9;
 		renderer.shadowMap.enabled = true;
 
-		const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 4);
-		hemiLight.position.set(0, 0, 10);
+		const hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 10);
+		hemiLight.position.set(0, 0, 20);
 		scene.add(hemiLight);
 
-		const spotlight = new THREE.SpotLight(0xffffff, 4);
-		spotlight.position.set(0, 0, 8);
+		const spotlight = new THREE.SpotLight(0xffffff, 10);
+		spotlight.position.set(0, 0, 10);
 		spotlight.castShadow = true;
-		spotlight.shadow.bias = -0.0001;
+		spotlight.shadow.bias = -0.001;
+		spotlight.shadow.mapSize.width = 1024 * 4;
+		spotlight.shadow.mapSize.height = 1024 * 4;
 		scene.add(spotlight);
 
 		//mount to DOM
@@ -57,13 +59,13 @@ function Home() {
 
 			function animate() {
 				requestAnimationFrame(animate);
-	
-				donut.rotation.z += 0.019;
-				donut.rotation.y += 0.02;
-	
+
+				donut.rotation.z += 0.049;
+				donut.rotation.y += 0.05;
+
 				renderer.render(scene, camera);
 			}
-	
+
 			animate();
 		}, undefined, (error) => {
 			console.error(error);
@@ -74,6 +76,7 @@ function Home() {
 		<div className="home">
 			<div className="title">Hello Donut World!</div>
 			<div id="scene"></div>
+			<div className="attribution">"Donut" (https://skfb.ly/oCW9I) by JoeDev is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).</div>
 		</div>
 	);
 }
