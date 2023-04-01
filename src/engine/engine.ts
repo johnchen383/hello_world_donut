@@ -78,7 +78,7 @@ class Engine {
   };
 
   #animate = () => {
-    window.requestAnimationFrame(this.#animate);
+    this.#setRef(window.requestAnimationFrame(this.#animate));
 
     if (this.#donut){
         this.#donut.rotation.z += 0.019;
